@@ -1,0 +1,25 @@
+{
+  "name": "programacionbackend",
+  "version": "1.0.0",
+  "description": "Curso de Programacion Backend dado por la plataforma de coderhouse",
+  "main": "ProductManager.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./src/app.js",
+    "start:dev": "nodemon ./src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TomasGerling/ProgramacionBackend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TomasGerling/ProgramacionBackend/issues"
+  },
+  "homepage": "https://github.com/TomasGerling/ProgramacionBackend#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
