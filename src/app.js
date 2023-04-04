@@ -6,6 +6,11 @@ const port = 8080;
 
 const productManager = new ProductManager('./products.json');
 app.use(express.urlencoded({extended:true}))
+
+app.get('/', async (req, res) => {
+  res.send('Aca todavia no hay nada, te recomiendo hacer click <a href="http://localhost:8080/products">Aca para ver todos los productos</a> o <a href="http://localhost:8080/products?limit=5">Aca para ver solo 5 productos</a> ')
+})
+
 app.get('/products', async (req, res) => {
   let limit = req.query.limit;
   let products = await productManager.getProducts();
