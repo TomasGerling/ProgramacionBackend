@@ -1,1 +1,62 @@
-[]
+[
+    {
+        "name": "Laptop",
+        "price": 1500,
+        "description": "A high-end laptop with advanced features",
+        "id": 1
+    },
+    {
+        "name": "Smartphone",
+        "price": 800,
+        "description": "A powerful smartphone with long battery life",
+        "id": 2
+    },
+    {
+        "name": "Headphones",
+        "price": 100,
+        "description": "High-quality headphones for immersive sound experience",
+        "id": 3
+    },
+    {
+        "name": "Tablet",
+        "price": 600,
+        "description": "A versatile tablet for both work and entertainment",
+        "id": 4
+    },
+    {
+        "name": "Gaming Console",
+        "price": 400,
+        "description": "A popular gaming console with a large game library",
+        "id": 5
+    },
+    {
+        "name": "Smart Watch",
+        "price": 200,
+        "description": "A wearable device for tracking fitness and receiving notifications",
+        "id": 6
+    },
+    {
+        "name": "Wireless Earbuds",
+        "price": 80,
+        "description": "High-quality earbuds with noise-cancellation technology",
+        "id": 7
+    },
+    {
+        "name": "Smart Speaker",
+        "price": 150,
+        "description": "A voice-activated speaker with advanced AI assistant",
+        "id": 8
+    },
+    {
+        "name": "Drone",
+        "price": 500,
+        "description": "A remote-controlled aerial vehicle for aerial photography and videography",
+        "id": 9
+    },
+    {
+        "name": "Smart Thermostat",
+        "price": 120,
+        "description": "A programmable thermostat for energy-efficient temperature control",
+        "id": 10
+    }
+]
