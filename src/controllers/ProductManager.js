@@ -12,7 +12,7 @@ class ProductManager {
     await this.saveProducts(products);
     return newProduct;
   }
-
+  
   async getProducts() {
     try {
       const products = await fs.promises.readFile(this.path, 'utf-8');
@@ -25,10 +25,10 @@ class ProductManager {
       throw error;
     }
   }
-
+  
   async getProductById(id) {
     const products = await this.getProducts();
-    const product = products.find((p) => p.id === id);
+    const product = products.find((p) => p.id == id);
     if (!product) {
       throw new Error(`Product with id ${id} not found`);
     }
@@ -61,5 +61,4 @@ class ProductManager {
     await fs.promises.writeFile(this.path, JSON.stringify(products, null, 2));
   }
 }
-
 module.exports = ProductManager;

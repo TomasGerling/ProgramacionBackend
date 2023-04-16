@@ -1,62 +1,133 @@
 [
-    {
-        "name": "Laptop",
-        "price": 1500,
-        "description": "A high-end laptop with advanced features",
-        "id": 1
-    },
-    {
-        "name": "Smartphone",
-        "price": 800,
-        "description": "A powerful smartphone with long battery life",
-        "id": 2
-    },
-    {
-        "name": "Headphones",
-        "price": 100,
-        "description": "High-quality headphones for immersive sound experience",
-        "id": 3
-    },
-    {
-        "name": "Tablet",
-        "price": 600,
-        "description": "A versatile tablet for both work and entertainment",
-        "id": 4
-    },
-    {
-        "name": "Gaming Console",
-        "price": 400,
-        "description": "A popular gaming console with a large game library",
-        "id": 5
-    },
-    {
-        "name": "Smart Watch",
-        "price": 200,
-        "description": "A wearable device for tracking fitness and receiving notifications",
-        "id": 6
-    },
-    {
-        "name": "Wireless Earbuds",
-        "price": 80,
-        "description": "High-quality earbuds with noise-cancellation technology",
-        "id": 7
-    },
-    {
-        "name": "Smart Speaker",
-        "price": 150,
-        "description": "A voice-activated speaker with advanced AI assistant",
-        "id": 8
-    },
-    {
-        "name": "Drone",
-        "price": 500,
-        "description": "A remote-controlled aerial vehicle for aerial photography and videography",
-        "id": 9
-    },
-    {
-        "name": "Smart Thermostat",
-        "price": 120,
-        "description": "A programmable thermostat for energy-efficient temperature control",
-        "id": 10
-    }
+  {
+    "title": "Laptop",
+    "description": "A high-end laptop with advanced features",
+    "code": "LT001",
+    "price": 1500,
+    "status": "available",
+    "stock": 50,
+    "category": "Computers",
+    "thumbnails": [
+      "laptop.jpg"
+    ],
+    "id": 1
+  },
+  {
+    "title": "Smartphone",
+    "description": "A powerful smartphone with long battery life",
+    "code": "SP001",
+    "price": 800,
+    "status": "available",
+    "stock": 100,
+    "category": "Phones",
+    "thumbnails": [
+      "smartphone.jpg"
+    ],
+    "id": 2
+  },
+  {
+    "title": "Headphones",
+    "description": "High-quality headphones for immersive sound experience",
+    "code": "HD001",
+    "price": 100,
+    "status": "available",
+    "stock": 200,
+    "category": "Accessories",
+    "thumbnails": [
+      "headphones.jpg"
+    ],
+    "id": 3
+  },
+  {
+    "title": "Tablet",
+    "description": "A versatile tablet for both work and entertainment",
+    "code": "TB001",
+    "price": 600,
+    "status": "available",
+    "stock": 75,
+    "category": "Computers",
+    "thumbnails": [
+      "tablet.jpg"
+    ],
+    "id": 4
+  },
+  {
+    "title": "Gaming Console",
+    "description": "A popular gaming console with a large game library",
+    "code": "GC001",
+    "price": 400,
+    "status": "available",
+    "stock": 30,
+    "category": "Gaming",
+    "thumbnails": [
+      "gaming-console.jpg"
+    ],
+    "id": 5
+  },
+  {
+    "title": "Smart Watch",
+    "description": "A wearable device for tracking fitness and receiving notifications",
+    "code": "SW001",
+    "price": 200,
+    "status": "available",
+    "stock": 50,
+    "category": "Wearables",
+    "thumbnails": [
+      "smartwatch.jpg"
+    ],
+    "id": 6
+  },
+  {
+    "title": "Wireless Earbuds",
+    "description": "High-quality earbuds with noise-cancellation technology",
+    "code": "WE001",
+    "price": 80,
+    "status": "available",
+    "stock": 150,
+    "category": "Accessories",
+    "thumbnails": [
+      "wireless-earbuds.jpg"
+    ],
+    "id": 7
+  },
+  {
+    "title": "Smart Speaker",
+    "description": "A voice-activated speaker with advanced AI assistant",
+    "code": "SS001",
+    "price": 150,
+    "status": "available",
+    "stock": 20,
+    "category": "Speakers",
+    "thumbnails": [
+      "smart-speaker.jpg"
+    ],
+    "id": 8
+  },
+  {
+    "title": "Drone",
+    "description": "A remote-controlled aerial vehicle for aerial photography and videography",
+    "code": "DR001",
+    "price": 500,
+    "status": "available",
+    "stock": 10,
+    "category": "Drones",
+    "thumbnails": [
+      "drone.jpg"
+    ],
+    "id": 9
+  },
+  {
+    "title": "Smart Thermostat",
+    "description": "A programmable thermostat for energy-efficient temperature control",
+    "code": "ST001",
+    "price": 120,
+    "status": "available",
+    "stock": 15,
+    "category": "smart home",
+    "thumbnails": [
+      "https://example.com/thermostat-thumbnail1.jpg",
+      "https://example.com/thermostat-thumbnail2.jpg"
+    ],
+    "id": 10
+  }
 ]
