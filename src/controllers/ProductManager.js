@@ -7,11 +7,15 @@ class ProductManager {
 
   async addProduct(product) {
     const products = await this.getProducts();
+    if (products.some(p => p.code === product.code)) {
+      throw new Error('A product with this code already exists');
+    }
     const newProduct = { ...product, id: products.length + 1 };
     products.push(newProduct);
     await this.saveProducts(products);
     return newProduct;
   }
+  
   
   async getProducts() {
     try {
