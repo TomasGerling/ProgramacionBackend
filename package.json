@@ -20,6 +20,11 @@
   },
   "homepage": "https://github.com/TomasGerling/ProgramacionBackend#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "express-handlebars": "^7.0.7",
+    "handlebars": "^4.7.7",
+    "socket.io": "^4.6.1",
+    "websocket": "^1.0.34"
   }
 }

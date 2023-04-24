@@ -4,7 +4,7 @@ class ProductManager {
   constructor(path) {
     this.path = path;
   }
-
+  static requiredFields = ['title', 'code', 'price', 'stock', 'thumbnail', 'category', 'description'];
   async addProduct(product) {
     const products = await this.getProducts();
     if (products.some(p => p.code === product.code)) {

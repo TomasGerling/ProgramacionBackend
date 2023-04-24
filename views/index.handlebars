@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css" integrity="sha512-hjKg+oLwZp8h3q3xMxHqwvaxt+gD8WWQnJZvuG77aJkizn38F+7Qd0/ZI+k/MKjz9/UTD8sgPq3E5u5NvzljLA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-md-6">
+        <h1>Welcome to My Website</h1>
+        <p>This is the home page of my website. You can put any content you like here.</p>
+      </div>
+      <div class="col-md-6">
+        <img src="../../public/img/logo_ch.png" alt="Mi imagen">
+        <img src="https://via.placeholder.com/400x250.png" alt="Placeholder Image" class="img-fluid">
+      </div>
+          <div class="row">
+        <div class="col-12 m-3">
+            <ul>
+                {{#each products}}
+                <li>{{this.products.title}}, {{this.price}} ({{this.stock}})</li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</div>
+    </div>
+  </div>
+<script>
+    // Conectamos al websocket, en este caso en el mismo servidor donde corre este cliente, puerto 3050
+    const ws = io('ws://localhost:3050');
+
+    ws.on('connect', () => { // Escuchamos el evento connect para detectar cuándo logramos conectar al servidor
+        // Emitimos el evento event_cl01
+        ws.emit('event_cl01', 'Este es el primer mensaje desde el cliente 01');
+
+        // Escuchamos por el evento server_confirm desde el servidor
+        ws.on('server_confirm', (msg) => {
+            console.log(msg);
+        });
+    })
+</script>
+</html>
