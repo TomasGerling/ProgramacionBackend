@@ -1,10 +1,10 @@
-const fs = require('fs');
+import { promises } from 'fs';
 
 class ProductManager {
   constructor(path) {
     this.path = path;
   }
-
+  static requiredFields = ['title', 'code', 'price', 'stock', 'thumbnail', 'category', 'description'];
   async addProduct(product) {
     const products = await this.getProducts();
     if (products.some(p => p.code === product.code)) {
@@ -19,7 +19,7 @@ class ProductManager {
   
   async getProducts() {
     try {
-      const products = await fs.promises.readFile(this.path, 'utf-8');
+      const products = await promises.readFile(this.path, 'utf-8');
       return JSON.parse(products);
     } catch (error) {
       if (error.code === 'ENOENT') {
@@ -62,7 +62,7 @@ class ProductManager {
   }
 
   async saveProducts(products) {
-    await fs.promises.writeFile(this.path, JSON.stringify(products, null, 2));
+    await promises.writeFile(this.path, JSON.stringify(products, null, 2));
   }
 }
-module.exports = ProductManager;
+export default ProductManager;

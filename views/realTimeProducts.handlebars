@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Real Time Products</title>
+</head>
+<body>
+	<h1>Real Time Products</h1>
+	<img src="https://i.blogs.es/966d16/portada/1366_2000.png" alt="Mi imagen">
+	<form id="addProductForm" method="post">
+		<label for="title">Product name:</label>
+		<input type="text" name="title" id="title">
+		<label for="price">Product price:</label>
+		<input type="number" name="price" id="price">
+		<button type="submit">Add product</button>
+	</form>
+	      <div class="row">
+        <div id="productsList">
+          {{#each products}}
+            <div class="product-item">
+              <ul class="row">
+                <li>
+                  <p>{{title}} / Precio: ${{price}} / ID: {{id}}</p>
+                </li>
+              </ul>
+            </div>
+          {{/each}}
+        </div>
+    </div>
+	<form id="deleteProductForm" method="post">
+		<label for="productId">Product ID:</label>
+		<input type="text" name="productId" id="productId">
+		<button type="submit">Delete product</button>
+	</form>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.js"></script>
+	<script>
+	const ws = io('ws://localhost:3050');
+// Manejo de la solicitud de agregar productos
+		const addProductForm = document.getElementById("addProductForm");
+		addProductForm.addEventListener("submit", (event) => {
+			event.preventDefault(); // Prevenir la recarga de la página al enviar el formulario
+
+			const title = document.getElementById("title").value;
+			const price = document.getElementById("price").value;
+			socket.emit("addProduct", { title, price }); // Emitir un evento para agregar el producto
+		});
+
+		// Manejo de la solicitud de eliminar productos
+		const deleteProductForm = document.getElementById("deleteProductForm");
+		deleteProductForm.addEventListener("submit", (event) => {
+			event.preventDefault(); // Prevenir la recarga de la página al enviar el formulario
+
+			const productId = document.getElementById("productId").value;
+			socket.emit("deleteProduct", productId); // Emitir un evento para eliminar el producto
+		});
+			// Agregar cada producto a la lista
+			products.forEach((product) => {
+				const productItem = document.createElement("div");
+				productItem.classList.add("product-item");
+				productItem.innerHTML = `<ul class="row"><li><p>${product.title} / Precio: $${product.price} / ID: ${product.id}</p></li></ul>`;
+				productsList.appendChild(productItem);
+			});
+	</script>
+	</body>
+</html>
