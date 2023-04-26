@@ -39,19 +39,13 @@ server.use('/api', cartRoutes);
 server.engine('handlebars', engine());
 server.set('view engine', 'handlebars');
 server.set('views', './views');
-
-// Configuración de la vista index
-server.get('/index', (req, res) => {
-    res.render('index');
-});
-
 // Ruta para la página de inicio
 server.get('/', (req, res) => {
   // Cargamos los productos desde products.json
   const products = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'products.json'), 'utf-8'));
   
-  // Renderizamos el archivo index.handlebars y pasamos los datos de los productos
-  res.render('index', { products });
+  // Renderizamos el archivo home.handlebars y pasamos los datos de los productos
+  res.render('home', { products });
 });
 // Configuración de la vista realTimeProducts
 server.get('/realTimeProducts', function (req, res) {
