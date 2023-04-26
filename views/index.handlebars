@@ -18,30 +18,23 @@
         <img src="../../public/img/logo_ch.png" alt="Mi imagen">
         <img src="https://via.placeholder.com/400x250.png" alt="Placeholder Image" class="img-fluid">
       </div>
-          <div class="row">
-        <div class="col-12 m-3">
-            <ul>
-                {{#each products}}
-                <li>{{this.products.title}}, {{this.price}} ({{this.stock}})</li>
-                {{/each}}
-            </ul>
+      <div class="row">
+        <div id="productsList">
+          {{#each products}}
+            <div class="product-item">
+              <ul class="row">
+                <li>
+                  <p>{{title}} / Precio: ${{price}}  / Stock: {{stock}}</p>
+                </li>
+              </ul>
+            </div>
+          {{/each}}
         </div>
     </div>
-</div>
+      </div>
     </div>
   </div>
-<script>
-    // Conectamos al websocket, en este caso en el mismo servidor donde corre este cliente, puerto 3050
-    const ws = io('ws://localhost:3050');
+    </div>
+  </div>
 
-    ws.on('connect', () => { // Escuchamos el evento connect para detectar cuándo logramos conectar al servidor
-        // Emitimos el evento event_cl01
-        ws.emit('event_cl01', 'Este es el primer mensaje desde el cliente 01');
-
-        // Escuchamos por el evento server_confirm desde el servidor
-        ws.on('server_confirm', (msg) => {
-            console.log(msg);
-        });
-    })
-</script>
 </html>

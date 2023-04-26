@@ -1,49 +1,68 @@
-const products = [];
+import ProductManager from '../controllers/ProductManager.js';
 
-function getAllProducts(req, res) {
-  res.json(products);
-}
+const productManager = new ProductManager('products.json');
 
-function getProductById(req, res) {
-  const product = products.find(p => p.id === req.params.id);
-  if (!product) {
-    return res.status(404).json({ error: 'Product not found' });
+const productController = {};
+
+productController.getAllProducts = async (req, res) => {
+  try {
+    const products = await productManager.getProducts();
+    res.status(200).send({ status: 'OK', data: products });
+  } catch (err) {
+    res.status(500).send({ status: 'ERR', error: err });
   }
-  res.json(product);
-}
-
-function addProduct(req, res) {
-  const { name, price } = req.body;
-  const id = products.length + 1;
-  const newProduct = { id, name, price };
-  products.push(newProduct);
-  res.json(newProduct);
-}
-
-function updateProduct(req, res) {
-  const productIndex = products.findIndex(p => p.id === req.params.id);
-  if (productIndex < 0) {
-    return res.status(404).json({ error: 'Product not found' });
-  }
-  const { name, price } = req.body;
-  products[productIndex].name = name;
-  products[productIndex].price = price;
-  res.json(products[productIndex]);
-}
-
-function deleteProduct(req, res) {
-  const productIndex = products.findIndex(p => p.id === req.params.id);
-  if (productIndex < 0) {
-    return res.status(404).json({ error: 'Product not found' });
-  }
-  const deletedProduct = products.splice(productIndex, 1)[0];
-  res.json(deletedProduct);
-}
-
-module.exports = {
-  getAllProducts,
-  getProductById,
-  addProduct,
-  updateProduct,
-  deleteProduct
 };
+
+productController.getProductById = async (req, res) => {
+  try {
+    const product = await productManager.getProductById(req.params.id);
+    if (!product) {
+      return res.status(404).json({ error: 'Product not found' });
+    }
+    res.status(200).send({ status: 'OK', data: product });
+  } catch (err) {
+    res.status(500).send({ status: 'ERR', error: err });
+  }
+};
+
+productController.addProduct = async (req, res) => {
+  try {
+    await productManager.addProduct(req.body);
+    if (productManager.checkStatus() === 1) {
+      res.status(200).send({ status: 'OK', msg: productManager.showStatusMsg() });
+    } else {
+      res.status(400).send({ status: 'ERR', error: productManager.showStatusMsg() });
+    }
+  } catch (err) {
+    res.status(500).send({ status: 'ERR', error: err });
+  }
+};
+
+productController.updateProduct = async (req, res) => {
+  try {
+    const { id, field, data } = req.body;
+    await productManager.updateProduct(id, field, data);
+    if (productManager.checkStatus() === 1) {
+      res.status(200).send({ status: 'OK', msg: productManager.showStatusMsg() });
+    } else {
+      res.status(400).send({ status: 'ERR', error: productManager.showStatusMsg() });
+    }
+  } catch (err) {
+    res.status(500).send({ status: 'ERR', error: err });
+  }
+};
+
+productController.deleteProduct = async (req, res) => {
+  try {
+    await productManager.deleteProduct(req.params.id);
+    if (productManager.checkStatus() === 1) {
+      res.status(200).send({ status: 'OK', msg: productManager.showStatusMsg() });
+    } else {
+      res.status(400).send({ status: 'ERR', error: productManager.showStatusMsg() });
+    }
+  } catch (err) {
+    res.status(500).send({ status: 'ERR', error: err });
+  }
+};
+
+export default productController;

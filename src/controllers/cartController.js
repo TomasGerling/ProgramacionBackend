@@ -53,4 +53,4 @@ const cartController = {
     }
 };    
 
-module.exports = cartController;
+export default cartController;
